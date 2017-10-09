@@ -56,11 +56,11 @@ namespace scanner.Controllers
                     System.IO.File.AppendAllLines(path, h1Texts);
                 }
 
-                foreach (var h1Text in h1Texts)
-                {
+                //foreach (var h1Text in h1Texts)
+                //{
 
-                    dao.Add();
-                }
+                //    dao.Add(h1Text);
+                //}
 
                 return true;
             }

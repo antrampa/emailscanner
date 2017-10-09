@@ -34,7 +34,7 @@ namespace scanner.Daos
                 using (var db = new MainContext())
                 {
                     //db.H1Texts.AddOrUpdate(i => i.Text, h1Text);
-                    db.EMails.Add(eMail);
+                    db.EMails.AddOrUpdate(i => i.Email, eMail);
                     db.SaveChanges();
                 }
             }

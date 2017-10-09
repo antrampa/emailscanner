@@ -40,6 +40,17 @@ namespace scanner
                     writerController.WriteEmails(mails);
                 }
 
+
+                ////TODO H1
+                //var h1Texts = scaner.FindH1(savedLink, savedLink);
+                //writerController.WriteH1(h1Texts);
+
+                //foreach (var link in links)
+                //{
+                //    h1Texts = scaner.FindH1(link, "");
+                //    writerController.WriteH1(mails);
+                //}
+
             }
 
             

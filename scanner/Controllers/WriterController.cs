@@ -20,14 +20,16 @@ namespace scanner.Controllers
                 {
                     // Create a file to write to.
                     System.IO.File.WriteAllLines(path, emails);
-                    foreach (var email in emails)
-                    {
-                        dao.Add(new EMail("", email));
-                    }
+                    
                 }
                 else
                 {
                     System.IO.File.AppendAllLines(path, emails);
+                }
+
+                foreach (var email in emails)
+                {
+                    dao.Add(new EMail("", email));
                 }
                 return true;
             }
@@ -47,17 +49,19 @@ namespace scanner.Controllers
                 {
                     // Create a file to write to.
                     System.IO.File.WriteAllLines(path, h1Texts);
-                    //foreach (var h1Text in h1Texts)
-                    //{
-
-                    //    dao.Add();
-                    //}
+                   
                 }
                 else
                 {
                     System.IO.File.AppendAllLines(path, h1Texts);
                 }
-                
+
+                foreach (var h1Text in h1Texts)
+                {
+
+                    dao.Add();
+                }
+
                 return true;
             }
             catch (Exception ex)
@@ -76,16 +80,18 @@ namespace scanner.Controllers
                 {
                     // Create a file to write to.
                     System.IO.File.WriteAllLines(path, links);
-                    foreach (var link in links)
-                    {
-                        dao.Add(new Link(link));
-                    }
+                    
                 }
                 else
                 {
                     System.IO.File.AppendAllLines(path, links);
                 }
-               
+
+                foreach (var link in links)
+                {
+                    dao.Add(new Link(link));
+                }
+
                 return true;
             }
             catch(Exception ex)

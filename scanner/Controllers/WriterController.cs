@@ -1,4 +1,6 @@
-﻿using System;
+﻿using scanner.Daos;
+using scanner.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,11 +14,16 @@ namespace scanner.Controllers
         {
             try
             {
+                var dao = new EMailsDao();
                 var path = @"emails.csv";
                 if (!System.IO.File.Exists(path))
                 {
                     // Create a file to write to.
                     System.IO.File.WriteAllLines(path, emails);
+                    foreach (var email in emails)
+                    {
+                        dao.Add(new EMail("", email));
+                    }
                 }
                 else
                 {
@@ -34,11 +41,17 @@ namespace scanner.Controllers
         {
             try
             {
+                var dao = new H1TExtsDao();
                 var path = @"h1Texts.csv";
                 if (!System.IO.File.Exists(path))
                 {
                     // Create a file to write to.
                     System.IO.File.WriteAllLines(path, h1Texts);
+                    //foreach (var h1Text in h1Texts)
+                    //{
+
+                    //    dao.Add();
+                    //}
                 }
                 else
                 {
@@ -57,11 +70,16 @@ namespace scanner.Controllers
         {
             try
             {
+                var dao = new LinksDao();
                 var path = @"links.csv";
                 if (!System.IO.File.Exists(path))
                 {
                     // Create a file to write to.
                     System.IO.File.WriteAllLines(path, links);
+                    foreach (var link in links)
+                    {
+                        dao.Add(new Link(link));
+                    }
                 }
                 else
                 {

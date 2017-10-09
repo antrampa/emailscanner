@@ -1,4 +1,5 @@
-﻿using scanner.Controllers;
+﻿using scanner.Contexts;
+using scanner.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace scanner
             IReaderController reader = new ReaderController();
             IWebScannerController scaner = new WebScannerController();
             IWriterController writerController = new WriterController();
+
+            var db = new MainContext();
 
             var savedLinks = reader.ReadLinks();
             foreach(var savedLink in savedLinks)

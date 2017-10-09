@@ -29,7 +29,7 @@ namespace scanner.Controllers
         public IList<string> ReadLinks()
         {
             IList<string> links = new List<string>();
-            var path = @"links.csv";
+            var path = @"links_origins.csv";
             string[] readText = System.IO.File.ReadAllLines(path);
             foreach (string s in readText)
             {

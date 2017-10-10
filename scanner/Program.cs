@@ -1,5 +1,7 @@
 ﻿using scanner.Contexts;
 using scanner.Controllers;
+using scanner.Daos;
+using scanner.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +20,9 @@ namespace scanner
 
             var db = new MainContext();
 
-            var savedLinks = reader.ReadLinks();
-            foreach(var savedLink in savedLinks)
+            var savedLinks = reader.ReadLinksFromDB(); // reader.ReadLinks();
+            var linkDao = new LinksDao();
+            foreach (var savedLink in savedLinks)
             {
                 Console.WriteLine(savedLink);
 
@@ -50,6 +53,10 @@ namespace scanner
                 //    h1Texts = scaner.FindH1(link, "");
                 //    writerController.WriteH1(mails);
                 //}
+
+                //Save Link as Scanned 
+                var scannedLink = new Link(savedLink, true);
+                linkDao.Add(scannedLink);
 
             }
 

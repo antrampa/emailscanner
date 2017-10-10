@@ -41,6 +41,23 @@ namespace scanner.Daos
                 throw;
             }
         }
+
+        public IList<string> GetUnreadedLinks()
+        {
+            IList<string> links;
+            try
+            {
+                using (var db = new MainContext())
+                {
+                    links = db.Links.Where(l => l.HasScanned == false || l.HasScanned == null).Select(l=>l.Url).ToList();                    
+                }
+                return links;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         #endregion
     }
 }

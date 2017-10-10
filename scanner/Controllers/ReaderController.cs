@@ -1,4 +1,5 @@
-﻿using System;
+﻿using scanner.Daos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,6 +37,14 @@ namespace scanner.Controllers
                 links.Add(s);
             }
 
+            return links;
+        }
+
+        public IList<string> ReadLinksFromDB()
+        {
+            var dao = new LinksDao();
+            IList<string> links = dao.GetUnreadedLinks();
+            
             return links;
         }
     }

@@ -11,6 +11,7 @@ namespace scanner.Controllers
         IList<string> ReadLinks();
         IList<string> ReadEMails();
         IList<string> ReadH1Texts();
+        IList<string> ReadLinksFromDB();
 
     }
 }

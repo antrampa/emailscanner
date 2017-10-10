@@ -36,6 +36,12 @@ namespace scanner.Entities
         {
             Url = url;
         }
+
+        public Link(string url, bool scanned)
+        {
+            Url = url;
+            HasScanned = scanned;
+        }
         #endregion
     }
 }

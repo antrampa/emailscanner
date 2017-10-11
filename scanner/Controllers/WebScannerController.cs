@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace scanner.Controllers
@@ -18,7 +19,14 @@ namespace scanner.Controllers
                 HtmlDocument doc = hw.Load(url);
                 if(doc != null && doc.DocumentNode != null)
                 {
-                    foreach (HtmlNode h1 in doc.DocumentNode.SelectNodes("//H1"))
+                    int i = 0;
+                    while(!doc.DocumentNode.HasChildNodes && i <= 5)
+                    {
+                        Thread.Sleep(500);
+                        i++;
+                    }
+
+                    foreach (HtmlNode h1 in doc.DocumentNode.Descendants("h1"))
                     {
                         h1s.Add(h1.InnerText);
 

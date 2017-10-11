@@ -74,7 +74,7 @@ namespace scanner.Daos
             {
                 using (var db = new MainContext())
                 {
-                    links = db.Links.Where(l => l.HasScanned == false || l.HasScanned == null).OrderBy(p=>p.Sort).OrderBy(p => p.Weight).Select(l=>l.Url).ToList();                    
+                    links = db.Links.Where(l => l.HasScanned == false || l.HasScanned == null).OrderByDescending(p=>p.Sort).OrderByDescending(p => p.Weight).Select(l=>l.Url).ToList();                    
                 }
                 return links;
             }

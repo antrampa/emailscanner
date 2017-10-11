@@ -11,39 +11,26 @@ namespace scanner.Controllers
     {
         public IList<string> FindH1(string url, string baseurl)
         {
-            IList<string> links = new List<string>();
+            IList<string> h1s = new List<string>();
             try
             {
                 HtmlWeb hw = new HtmlWeb();
                 HtmlDocument doc = hw.Load(url);
-                foreach (HtmlNode link in doc.DocumentNode.SelectNodes("//h1"))
+                if(doc != null && doc.DocumentNode != null)
                 {
-                    var attributes = link.Attributes;
-                    //links.Add(link.InnerText);
-                    var href = link.GetAttributeValue("href", "");
-                    if (!string.IsNullOrEmpty(href) && !href.StartsWith("javascript:")
-                         && !href.StartsWith("mailto:")
-                         && !href.StartsWith("tel:")
-                         && !href.StartsWith("#"))
+                    foreach (HtmlNode h1 in doc.DocumentNode.SelectNodes("//H1"))
                     {
-                        if (!href.StartsWith("http://") && !href.StartsWith("https://"))
-                        {
-                            links.Add(baseurl + href);
-                        }
-                        else
-                        {
-                            links.Add(href);
-                        }
+                        h1s.Add(h1.InnerText);
 
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
             }
 
-            return links;
+            return h1s;
         }
 
         public IList<string> FindLinks(string url,string baseurl)

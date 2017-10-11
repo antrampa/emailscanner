@@ -34,8 +34,11 @@ namespace scanner.Daos
                 using (var db = new MainContext())
                 {
                     //db.H1Texts.AddOrUpdate(i => i.Text, h1Text);
-                    db.H1Texts.Add(h1Text);
-                    db.SaveChanges();
+                    if(h1Text != null && !db.H1Texts.Any(i=> i.Text == h1Text.Text && i.Url == h1Text.Url ))
+                    {
+                        db.H1Texts.Add(h1Text);
+                        db.SaveChanges();
+                    }
                 }
             }
             catch (Exception ex)

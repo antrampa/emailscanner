@@ -24,6 +24,21 @@ namespace scanner.Entities
 
         [Column("HAS_SCANNED")]
         public bool? HasScanned { set; get; }
+
+        [Column("SORT")]
+        public int? Sort { set; get; }
+
+        [Column("WEIGHT")]
+        public int? Weight { set; get; }
+
+        [Column("META_DESCRIPTION", TypeName = "NVARCHAR")]
+        [StringLength(255)]
+        public string MetaDescription { set; get; }
+
+        [Column("META_KEYWORDS", TypeName = "NVARCHAR")]
+        [StringLength(255)]
+        public string MetaKeywords { set; get; }
+
         #endregion
 
         #region Constructors 

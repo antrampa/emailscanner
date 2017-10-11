@@ -32,6 +32,31 @@ namespace scanner.Daos
             {
                 using (var db = new MainContext())
                 {
+                    if(link != null && !db.Links.Any(i=>i.Url == link.Url))
+                    {
+                        db.Links.AddOrUpdate(i => i.Url, link);
+                        db.SaveChanges();
+                    }
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public void SetScanned(Link link, bool hasScanned)
+        {
+            try
+            {
+                if (link != null)
+                {
+                    link.HasScanned = hasScanned;
+                }
+                
+                using (var db = new MainContext())
+                {
                     db.Links.AddOrUpdate(i => i.Url, link);
                     db.SaveChanges();
                 }
@@ -49,7 +74,7 @@ namespace scanner.Daos
             {
                 using (var db = new MainContext())
                 {
-                    links = db.Links.Where(l => l.HasScanned == false || l.HasScanned == null).Select(l=>l.Url).ToList();                    
+                    links = db.Links.Where(l => l.HasScanned == false || l.HasScanned == null).OrderBy(p=>p.Sort).OrderBy(p => p.Weight).Select(l=>l.Url).ToList();                    
                 }
                 return links;
             }

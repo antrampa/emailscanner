@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace scanner.Entities
 {
-    [Table("H1_TEXTS")]
-    public class H1Text
+    [Table("DO_NOT_SCANN_LINK")]
+    public class DoNotScanLink
     {
         #region Properties
         [Key]
@@ -19,27 +19,9 @@ namespace scanner.Entities
 
         //public string Tag { set; get; }
         [Column("URL", TypeName = "NVARCHAR")]
-        [StringLength(150)]
+        [StringLength(255)]
         public string Url { set; get; }
 
-        [Column("TEXT", TypeName = "NVARCHAR")]
-        [StringLength(255)]
-        [Index]
-        public string Text { set; get; }
-
-        #endregion
-
-        #region Constructors 
-        public H1Text()
-        {
-
-        }
-
-        public H1Text(string h1, string url)
-        {
-            Url = url;
-            Text = h1;
-        }
         #endregion
     }
 }

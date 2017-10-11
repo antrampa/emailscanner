@@ -39,7 +39,7 @@ namespace scanner.Controllers
             }
         }
 
-        public bool WriteH1(IList<string> h1Texts)
+        public bool WriteH1(IList<string> h1Texts,string url)
         {
             try
             {
@@ -56,11 +56,11 @@ namespace scanner.Controllers
                     System.IO.File.AppendAllLines(path, h1Texts);
                 }
 
-                //foreach (var h1Text in h1Texts)
-                //{
+                foreach (var h1text in h1Texts)
+                {
 
-                //    dao.Add(h1Text);
-                //}
+                    dao.Add(new H1Text(h1text, url));
+                }
 
                 return true;
             }

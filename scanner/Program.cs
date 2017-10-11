@@ -48,8 +48,8 @@ namespace scanner
 
 
                     ////TODO H1
-                    //var h1Texts = scaner.FindH1(savedLink, savedLink);
-                    //writerController.WriteH1(h1Texts);
+                    var h1Texts = scaner.FindH1(savedLink, savedLink);
+                    writerController.WriteH1(h1Texts, savedLink);
 
                     //foreach (var link in links)
                     //{
@@ -59,7 +59,7 @@ namespace scanner
 
                     //Save Link as Scanned 
                     var scannedLink = new Link(savedLink, true);
-                    linkDao.Add(scannedLink);
+                    linkDao.SetScanned(scannedLink, true);
 
                 }
 

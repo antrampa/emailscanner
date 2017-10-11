@@ -10,6 +10,6 @@ namespace scanner.Controllers
     {
         bool WriteLinks(IList<string> links);
         bool WriteEmails(IList<string> emails);
-        bool WriteH1(IList<string> h1Texts);
+        bool WriteH1(IList<string> h1Texts, string url);
     }
 }

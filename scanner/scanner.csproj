@@ -75,12 +75,20 @@
     <Compile Include="Daos\EMailsDao.cs" />
     <Compile Include="Daos\H1TExtsDao.cs" />
     <Compile Include="Daos\LinksDao.cs" />
+    <Compile Include="Entities\AllContent.cs" />
+    <Compile Include="Entities\AllH1.cs" />
+    <Compile Include="Entities\AllP.cs" />
+    <Compile Include="Entities\DoNotScanLink.cs" />
     <Compile Include="Entities\EMail.cs" />
     <Compile Include="Entities\H1Text.cs" />
     <Compile Include="Entities\Link.cs" />
     <Compile Include="Migrations\201710090741491_InitDatabase.cs" />
     <Compile Include="Migrations\201710090741491_InitDatabase.Designer.cs">
       <DependentUpon>201710090741491_InitDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710110723236_addednewtabels.cs" />
+    <Compile Include="Migrations\201710110723236_addednewtabels.Designer.cs">
+      <DependentUpon>201710110723236_addednewtabels.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -93,6 +101,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201710090741491_InitDatabase.resx">
       <DependentUpon>201710090741491_InitDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710110723236_addednewtabels.resx">
+      <DependentUpon>201710110723236_addednewtabels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
